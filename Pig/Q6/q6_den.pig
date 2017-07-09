@@ -11,7 +11,7 @@ a4 = filter a1 by case_status =='DENIED';
 
 a5 = group a4 by year;
 
---a6 = foreach a5 generate group as year, COUNT(a4) as Certified;
+--a6 = foreach a5 generate group as year, COUNT(a4) as Denied;
 a6 = load '/niit/a6_op_den' using PigStorage(',') as (year:chararray, a4_count:int);
 
 a7 = join a3 by $0, a6 by $0;
