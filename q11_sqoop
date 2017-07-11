@@ -1,0 +1,452 @@
+mysql> create database H1B;
+
+mysql> use H1B;
+Database changed
+
+mysql> create table Ques10(JOB_TITLE VARCHAR(200),
+    -> COUNT DOUBLE,
+    -> SUCCESS_RATE DOUBLE
+    -> );
+
+mysql> SHOW TABLES;
++---------------+
+| Tables_in_H1B |
++---------------+
+| Ques10        |
++---------------+
+1 row in set (0.00 sec)
+
+
+sqoop export --connect jdbc:mysql://localhost/H1B --username root --password 'hduser' --table Ques10 --update-mode allowinsert --export-dir /niit/q10 --input-fields-terminated-by ',';
+
+mysql> select * from Ques10;
+
++------------------------------------------------------------+--------+-------------------+
+| JOB_TITLE                                                  | COUNT  | SUCCESS_RATE      |
++------------------------------------------------------------+--------+-------------------+
+| ENGINEERING MANAGER                                        |   1199 | 83.98665554628857 |
+| PRODUCTION SUPPORT LEAD - US                               |   1301 |               100 |
+| WEB DEVELOPER                                              |   8024 | 92.16101694915254 |
+| HOSPITALIST PHYSICIAN                                      |   4067 | 87.77969018932875 |
+| SENIOR SYSTEMS ANALYST                                     |   5353 | 92.09788903418644 |
+| SENIOR MANAGER                                             |   1439 |  92.0778318276581 |
+| BUSINESS DEVELOPMENT SPECIALIST                            |   1482 | 83.94062078272604 |
+| MANAGEMENT ANALYST                                         |   5386 | 83.93984404010398 |
+| INDUSTRIAL ENGINEER                                        |   2093 | 83.65981844242714 |
+| APPLICATION PROGRAMMER                                     |   1686 | 83.62989323843416 |
+| SOFTWARE DEVELOPMENT ENGINEER IN TEST                      |   4258 | 83.51338656646313 |
+| STAFF ACCOUNTANT                                           |   4491 | 83.45580048986862 |
+| ASSOCIATE CONSULTANT - US                                  |   4393 | 99.90894605053494 |
+| TEST ENGINEER - US                                         |   2198 | 99.86351228389445 |
+| PRODUCTION SUPPORT ANALYST - US                            |   1451 | 99.86216402481047 |
+| SYSTEMS ENGINEER - US                                      |  10036 | 99.84057393383819 |
+| CONSULTANT - US                                            |   7426 | 99.79800700242392 |
+| SENIOR TECHNOLOGY ARCHITECT - US                           |   1417 | 99.78828510938604 |
+| TECHNOLOGY LEAD - US                                       |  28350 | 99.75308641975309 |
+| TECHNOLOGY ARCHITECT - US                                  |   4707 | 99.74506054811982 |
+| TECHNICAL TEST LEAD - US                                   |   5374 | 99.73948641607741 |
+| TEST ANALYST - US                                          |   4958 | 99.73779749899153 |
+| TECHNOLOGY ANALYST - US                                    |  26055 | 99.73133755517175 |
+| SENIOR PROJECT MANAGER - US                                |   2774 | 99.71160778658977 |
+| PROJECT MANAGER - US                                       |   7046 | 99.65938120919671 |
+| LEAD CONSULTANT - US                                       |   3402 | 99.64726631393297 |
+| DEVELOPER USER INTERFACE                                   |   5247 | 99.59977129788452 |
+| PRINCIPAL CONSULTANT - US                                  |   1352 | 99.48224852071006 |
+| PROGRAMMER ANALYST - II                                    |   3588 | 99.27536231884058 |
+| SPECIALIST MASTER                                          |   1119 | 99.19571045576407 |
+| SYSTEMS ANALYST - II                                       |   1339 | 99.10380881254667 |
+| PROJECT MANAGER - III                                      |   1651 | 99.09145972138099 |
+| ASSURANCE STAFF                                            |   2334 | 99.01456726649529 |
+| COMPUTER PROGRAMMER/CONFIGURER 2                           |   6729 | 98.91514340912468 |
+| SYSTEMS ANALYST - III                                      |   1006 |  98.9065606361829 |
+| COMPUTER SYSTEMS ANALYST 2                                 |   4031 | 98.80922847928554 |
+| COMPUTER SPECIALIST/SYSTEM SUPPORT AND DEVELOPMENT         |   1339 |  98.8050784167289 |
+| COMPUTER SPECIALIST/TESTING AND QUALITY ANALYST 2          |   3998 | 98.72436218109054 |
+| DATA WAREHOUSE SPECIALIST                                  |   1631 | 98.71244635193133 |
+| COMPUTER SYSTEMS ANALYST 3                                 |   2170 | 98.70967741935483 |
+| ADVISORY SENIOR                                            |   5416 | 98.65214180206794 |
+| PROGRAMMER ANALYST - I                                     |   1432 | 98.60335195530726 |
+| COMPUTER PROGRAMMER / CONFIGURER 2                         |   1276 | 98.51097178683386 |
+| COMPUTER PROGRAMMER/CONFIGURER 3                           |   1145 | 98.42794759825327 |
+| COMPUTER SPECIALIST/SYSTEM SUPPORT AND DEVELOPMENT ADMIN 2 |   1085 |  98.3410138248848 |
+| ADVISORY MANAGER                                           |   3255 | 98.21812596006144 |
+| SPECIALIST SENIOR                                          |   1447 | 98.20317899101589 |
+| MODULE LEAD                                                |   2226 | 98.20305480682839 |
+| AUDIT ASSISTANT                                            |   1205 | 98.09128630705393 |
+| ADVISORY STAFF                                             |   2413 | 98.01077496891835 |
+| ERS SENIOR CONSULTANT                                      |   2249 | 97.91018230324589 |
+| BUSINESS TECHNOLOGY ANALYST                                |   2005 | 97.85536159600997 |
+| AUDIT SENIOR                                               |   1070 | 97.85046728971962 |
+| TAX SENIOR                                                 |   1838 | 97.82372143634385 |
+| COMPUTER SYSTEMS ENGINEER/ARCHITECT                        |   2067 | 97.82293178519593 |
+| SOFTWARE QUALITY ASSURANCE ENGINEER AND TESTER             |   1568 | 97.44897959183673 |
+| ADVISORY SENIOR ASSOCIATE                                  |   1332 | 97.44744744744744 |
+| SOFTWARE ENGINEER AND TESTER                               |   1216 | 97.28618421052632 |
+| ERS CONSULTANT                                             |   2170 | 97.05069124423963 |
+| ASSURANCE SENIOR                                           |   1607 | 95.95519601742377 |
+| FUNCTIONAL CONSULTANT                                      |   1115 | 95.87443946188341 |
+| PROGRAMMER/DEVELOPER                                       |   1560 | 95.83333333333334 |
+| DEVELOPER                                                  |  12909 | 95.66968781470293 |
+| SOFTWARE ENGINEER 2                                        |   4166 | 95.07921267402784 |
+| LEAD CONSULTANT                                            |   2169 |   94.974642692485 |
+| COMPUTER SYSTEMS ENGINEER                                  |  11090 | 94.95040577096484 |
+| SYSTEMS ANALYSTS                                           |   1252 | 94.88817891373802 |
+| PHYSICIAN IN A POST GRADUATE TRAINING PROGRAM              |   2421 | 94.42379182156134 |
+| MANAGER                                                    |   8561 | 94.04275201495153 |
+| SOFTWARE ENGINEER & TESTER                                 |   1538 | 94.01820546163849 |
+| PROJECT LEAD                                               |   2363 |  93.9060516292848 |
+| SENIOR TECHNICAL CONSULTANT                                |   1882 | 93.78320935175346 |
+| APPLICATIONS CONSULTANT                                    |   1180 | 93.64406779661016 |
+| PRINCIPAL CONSULTANT                                       |   1836 |  92.0479302832244 |
+| ELEMENTARY BILINGUAL TEACHER                               |   2088 | 91.90613026819923 |
+| QA TESTER                                                  |   1170 |  91.7948717948718 |
+| TECHNICAL CONSULTANT                                       |   3420 | 91.72514619883042 |
+| TEST ANALYST                                               |   1419 | 91.40239605355885 |
+| LEAD ENGINEER                                              |  11157 |  91.3686474858833 |
+| APPLICATIONS DEVELOPER                                     |   3366 | 91.20617944147355 |
+| SOFTWARE TEST ENGINEER                                     |   3591 | 91.17237538290169 |
+| TECHNICAL MANAGER                                          |   1060 | 91.13207547169812 |
+| BUSINESS SYSTEM ANALYST                                    |   4435 |  91.0935738444194 |
+| RF ENGINEER                                                |   2794 | 90.94488188976378 |
+| TEST ENGINEER LEVEL 2                                      |   2372 |  90.7672849915683 |
+| MEMBER OF TECHNICAL STAFF                                  |   1774 | 90.75535512965051 |
+| COMPUTER PROGRAMMER                                        |  70570 | 90.71560153039535 |
+| COMPUTER SYSTEMS ANALYSTS                                  |   4728 | 90.71489001692046 |
+| SENIOR PROGRAMMER ANALYST                                  |   5810 | 90.60240963855422 |
+| IT PROJECT MANAGER                                         |   2473 | 90.45693489688638 |
+| SR. SYSTEMS ANALYST                                        |   1151 | 90.35621198957429 |
+| TECHNICAL LEAD                                             |   5218 |   90.341126868532 |
+| COMPONENT DESIGN ENGINEER                                  |   2851 | 90.28411083830234 |
+| IT CONSULTANT                                              |   3497 | 89.96282527881041 |
+| SYSTEMS ANALYST                                            |  61965 |  89.9604615508755 |
+| SENIOR SYSTEMS ANALYST JC60                                |   3069 |  89.8989898989899 |
+| BUSINESS INTELLIGENCE ANALYST                              |   1972 |  89.8580121703854 |
+| COMPUTER SPECIALIST                                        |   2175 | 89.83908045977012 |
+| TEST ENGINEER                                              |   3936 | 89.83739837398373 |
+| INDUSTRIAL DESIGNER                                        |   3619 | 89.83144515059409 |
+| TEST LEAD                                                  |   1726 | 89.68713789107764 |
+| NETWORK AND COMPUTER SYSTEMS ADMINISTRATOR                 |   1928 | 89.62655601659752 |
+| SOLUTIONS ARCHITECT                                        |   1915 |  89.6083550913838 |
+| COMPUTER SYSTEMS ANALYST                                   |  35086 | 89.58843983355185 |
+| SYSTEMS ENGINEER                                           |   8078 |  89.5642485763803 |
+| DATABASE DEVELOPER                                         |   1155 | 89.52380952380953 |
+| ARCHITECT LEVEL 2                                          |   2892 | 89.48824343015215 |
+| SYSTEMS ADMINISTRATOR                                      |   6659 | 89.47289382790208 |
+| PROGRAMMER ANALYST                                         | 249038 | 89.43615030637895 |
+| SYSTEM ADMINISTRATOR                                       |   5048 | 89.42155309033281 |
+| QA ANALYST                                                 |   6871 | 89.31742104497162 |
+| SR. PROGRAMMER ANALYST                                     |   3716 | 89.28955866523143 |
+| QUALITY ASSURANCE ANALYST                                  |   7326 | 89.23013923013923 |
+| TECHNICAL PROJECT MANAGER                                  |   1052 | 83.36501901140684 |
+| APPLICATIONS ENGINEER                                      |   1688 | 83.23459715639811 |
+| QUANTITATIVE ANALYST                                       |   1293 | 83.21732405259087 |
+| MARKETING SPECIALIST                                       |   2150 | 83.20930232558139 |
+| ACCOUNT MANAGER                                            |   1066 | 83.20825515947467 |
+| BUSINESS DEVELOPMENT MANAGER                               |   2345 | 83.19829424307036 |
+| SENIOR FINANCIAL ANALYST                                   |   1196 | 83.19397993311036 |
+| PROGRAMMER ANALYST II                                      |   1059 |  83.0028328611898 |
+| BUSINESS DEVELOPMENT ANALYST                               |   1148 | 82.92682926829268 |
+| DENTIST                                                    |   3250 | 82.92307692307692 |
+| INTERIOR DESIGNER                                          |   1361 | 82.88023512123439 |
+| MARKETING ANALYST                                          |   1573 |  82.8353464717101 |
+| CLINICAL FELLOW                                            |   1146 | 82.63525305410123 |
+| SCIENTIST                                                  |   1340 | 82.46268656716418 |
+| DIRECTOR                                                   |   1333 | 82.44561140285072 |
+| VICE PRESIDENT                                             |   3159 | 82.36783792339348 |
+| CIVIL ENGINEER                                             |   2257 | 82.36597252990695 |
+| RESIDENT                                                   |   1245 | 82.32931726907631 |
+| TEACHER                                                    |   3576 | 82.32662192393735 |
+| FINANCIAL ANALYST                                          |   8515 |  82.2665883734586 |
+| RESEARCH ANALYST                                           |   1869 | 82.23649010165865 |
+| LECTURER                                                   |   2257 | 82.10013291980505 |
+| MANAGING CONSULTANT                                        |   3873 | 82.08107410276271 |
+| IT SPECIALIST                                              |   2585 | 81.97292069632495 |
+| SENIOR RESEARCH ASSOCIATE                                  |   1015 |  81.9704433497537 |
+| RESEARCH ASSISTANT                                         |   1777 |  81.9358469330332 |
+| ELECTRICAL ENGINEER                                        |   4174 | 81.72017249640633 |
+| VISITING ASSISTANT PROFESSOR                               |   1311 | 81.54080854309687 |
+| SENIOR SYSTEM ENGINEER                                     |   1408 | 81.39204545454545 |
+| HARDWARE ENGINEER                                          |   2556 | 81.37715179968701 |
+| POSTDOCTORAL SCHOLAR                                       |   3186 | 81.35593220338984 |
+| MARKET RESEARCH ANALYST                                    |   8934 | 81.18423998209089 |
+| SYSTEM ANALYST JC65                                        |   1419 | 81.18393234672304 |
+| SCIENCE TEACHER                                            |   1127 |  81.1002661934339 |
+| ACCOUNTANT                                                 |  14048 | 80.77306378132118 |
+| BUSINESS OPERATIONS SPECIALIST                             |   1034 | 80.75435203094777 |
+| ASSISTANT VICE PRESIDENT                                   |   2132 | 80.72232645403376 |
+| CLINICAL ASSISTANT PROFESSOR                               |   1281 | 80.71818891491023 |
+| SALES MANAGER                                              |   1232 | 80.35714285714286 |
+| RESEARCH SCIENTIST                                         |   5154 |  80.2289483896003 |
+| GRAPHIC DESIGNER                                           |   5020 | 80.09960159362551 |
+| ASSISTANT PROFESSOR                                        |  25265 | 80.05145458143676 |
+| OPERATIONS MANAGER                                         |   1785 | 79.94397759103641 |
+| FINANCIAL MANAGER                                          |   1080 | 79.81481481481481 |
+| PUBLIC RELATIONS SPECIALIST                                |   1931 | 79.59606421543242 |
+| PROGRAMMER/ANALYST                                         |   9375 | 79.27466666666668 |
+| VALIDATION ENGINEER                                        |   1159 | 79.11993097497843 |
+| ASSOCIATE ATTORNEY                                         |   1533 |  78.1474233529028 |
+| POSTDOCTORAL RESEARCH FELLOW                               |   2346 | 78.13299232736573 |
+| LAW CLERK                                                  |   1709 | 78.11585722644821 |
+| SENIOR HARDWARE ENGINEER                                   |   1653 |  77.9189352692075 |
+| POST DOCTORAL FELLOW                                       |   1507 | 77.90311877903119 |
+| ASSOCIATE PROFESSOR                                        |   1441 | 77.79319916724496 |
+| ATTORNEY                                                   |   1050 | 77.71428571428571 |
+| RESEARCH ASSOCIATE                                         |  13623 | 77.57468986273214 |
+| ASSOCIATE RESEARCH SCIENTIST                               |   1400 | 77.14285714285715 |
+| MARKETING MANAGER                                          |   2230 | 77.08520179372196 |
+| INSTRUCTOR                                                 |   3014 | 77.07365627073656 |
+| CHIEF EXECUTIVE OFFICER                                    |   1095 | 76.62100456621005 |
+| RESEARCH ASSISTANT PROFESSOR                               |   1973 | 75.87430309173847 |
+| POSTDOCTORAL ASSOCIATE                                     |   5145 | 75.80174927113703 |
+| RESEARCH FELLOW                                            |   5981 | 75.08777796355125 |
+| GENERAL MANAGER                                            |   1348 | 75.07418397626114 |
+| POSTDOCTORAL FELLOW                                        |   7857 | 74.43044418989436 |
+| SOFTWARE DESIGN ENGINEER                                   |   1080 | 74.16666666666667 |
+| POSTDOCTORAL RESEARCH ASSOCIATE                            |   6041 | 73.39844396623076 |
+| ASSISTANT RESEARCH SCIENTIST                               |   1103 | 73.34542157751586 |
+| PROGRAMMER ANALYSTS                                        |   1133 | 73.08031774051192 |
+| RESEARCHER                                                 |   1031 | 73.03588748787585 |
+| STAFF SCIENTIST                                            |   1242 | 72.14170692431561 |
+| POSTDOCTORAL RESEARCHER                                    |   2130 | 71.50234741784037 |
+| SR. SOFTWARE DEVELOPER                                     |   1161 | 87.76916451335056 |
+| SR. SOFTWARE ENGINEER                                      |   4863 | 87.64137363767222 |
+| HOSPITALIST                                                |   4387 | 87.55413722361523 |
+| ARCHITECTURAL DESIGNER                                     |   2334 | 87.53213367609256 |
+| MEDICAL RESIDENT                                           |   2336 | 87.45719178082192 |
+| PHARMACIST                                                 |   5864 | 87.43178717598909 |
+| HOSPITALIST PHYSICIAN                                      |   4067 | 87.77969018932875 |
+| PRODUCTION SUPPORT LEAD - US                               |   1301 |               100 |
+| SR. SOFTWARE DEVELOPER                                     |   1161 | 87.76916451335056 |
+| SR. SOFTWARE ENGINEER                                      |   4863 | 87.64137363767222 |
+| HOSPITALIST                                                |   4387 | 87.55413722361523 |
+| ARCHITECTURAL DESIGNER                                     |   2334 | 87.53213367609256 |
+| MEDICAL RESIDENT                                           |   2336 | 87.45719178082192 |
+| PHARMACIST                                                 |   5864 | 87.43178717598909 |
+| ASSOCIATE CONSULTANT - US                                  |   4393 | 99.90894605053494 |
+| TEST ENGINEER - US                                         |   2198 | 99.86351228389445 |
+| PRODUCTION SUPPORT ANALYST - US                            |   1451 | 99.86216402481047 |
+| SYSTEMS ENGINEER - US                                      |  10036 | 99.84057393383819 |
+| CONSULTANT - US                                            |   7426 | 99.79800700242392 |
+| SENIOR TECHNOLOGY ARCHITECT - US                           |   1417 | 99.78828510938604 |
+| TECHNOLOGY LEAD - US                                       |  28350 | 99.75308641975309 |
+| TECHNOLOGY ARCHITECT - US                                  |   4707 | 99.74506054811982 |
+| TECHNICAL TEST LEAD - US                                   |   5374 | 99.73948641607741 |
+| TEST ANALYST - US                                          |   4958 | 99.73779749899153 |
+| TECHNOLOGY ANALYST - US                                    |  26055 | 99.73133755517175 |
+| SENIOR PROJECT MANAGER - US                                |   2774 | 99.71160778658977 |
+| PROJECT MANAGER - US                                       |   7046 | 99.65938120919671 |
+| LEAD CONSULTANT - US                                       |   3402 | 99.64726631393297 |
+| DEVELOPER USER INTERFACE                                   |   5247 | 99.59977129788452 |
+| PRINCIPAL CONSULTANT - US                                  |   1352 | 99.48224852071006 |
+| PROGRAMMER ANALYST - II                                    |   3588 | 99.27536231884058 |
+| SPECIALIST MASTER                                          |   1119 | 99.19571045576407 |
+| SYSTEMS ANALYST - II                                       |   1339 | 99.10380881254667 |
+| PROJECT MANAGER - III                                      |   1651 | 99.09145972138099 |
+| ASSURANCE STAFF                                            |   2334 | 99.01456726649529 |
+| COMPUTER PROGRAMMER/CONFIGURER 2                           |   6729 | 98.91514340912468 |
+| SYSTEMS ANALYST - III                                      |   1006 |  98.9065606361829 |
+| COMPUTER SYSTEMS ANALYST 2                                 |   4031 | 98.80922847928554 |
+| COMPUTER SPECIALIST/SYSTEM SUPPORT AND DEVELOPMENT         |   1339 |  98.8050784167289 |
+| COMPUTER SPECIALIST/TESTING AND QUALITY ANALYST 2          |   3998 | 98.72436218109054 |
+| DATA WAREHOUSE SPECIALIST                                  |   1631 | 98.71244635193133 |
+| COMPUTER SYSTEMS ANALYST 3                                 |   2170 | 98.70967741935483 |
+| ADVISORY SENIOR                                            |   5416 | 98.65214180206794 |
+| PROGRAMMER ANALYST - I                                     |   1432 | 98.60335195530726 |
+| COMPUTER PROGRAMMER / CONFIGURER 2                         |   1276 | 98.51097178683386 |
+| COMPUTER PROGRAMMER/CONFIGURER 3                           |   1145 | 98.42794759825327 |
+| COMPUTER SPECIALIST/SYSTEM SUPPORT AND DEVELOPMENT ADMIN 2 |   1085 |  98.3410138248848 |
+| ADVISORY MANAGER                                           |   3255 | 98.21812596006144 |
+| SPECIALIST SENIOR                                          |   1447 | 98.20317899101589 |
+| MODULE LEAD                                                |   2226 | 98.20305480682839 |
+| AUDIT ASSISTANT                                            |   1205 | 98.09128630705393 |
+| ADVISORY STAFF                                             |   2413 | 98.01077496891835 |
+| ERS SENIOR CONSULTANT                                      |   2249 | 97.91018230324589 |
+| BUSINESS TECHNOLOGY ANALYST                                |   2005 | 97.85536159600997 |
+| AUDIT SENIOR                                               |   1070 | 97.85046728971962 |
+| TAX SENIOR                                                 |   1838 | 97.82372143634385 |
+| COMPUTER SYSTEMS ENGINEER/ARCHITECT                        |   2067 | 97.82293178519593 |
+| SOFTWARE QUALITY ASSURANCE ENGINEER AND TESTER             |   1568 | 97.44897959183673 |
+| ADVISORY SENIOR ASSOCIATE                                  |   1332 | 97.44744744744744 |
+| SOFTWARE ENGINEER AND TESTER                               |   1216 | 97.28618421052632 |
+| ERS CONSULTANT                                             |   2170 | 97.05069124423963 |
+| ASSURANCE SENIOR                                           |   1607 | 95.95519601742377 |
+| FUNCTIONAL CONSULTANT                                      |   1115 | 95.87443946188341 |
+| PROGRAMMER/DEVELOPER                                       |   1560 | 95.83333333333334 |
+| DEVELOPER                                                  |  12909 | 95.66968781470293 |
+| SOFTWARE ENGINEER 2                                        |   4166 | 95.07921267402784 |
+| LEAD CONSULTANT                                            |   2169 |   94.974642692485 |
+| COMPUTER SYSTEMS ENGINEER                                  |  11090 | 94.95040577096484 |
+| SYSTEMS ANALYSTS                                           |   1252 | 94.88817891373802 |
+| PHYSICIAN IN A POST GRADUATE TRAINING PROGRAM              |   2421 | 94.42379182156134 |
+| MANAGER                                                    |   8561 | 94.04275201495153 |
+| SOFTWARE ENGINEER & TESTER                                 |   1538 | 94.01820546163849 |
+| PROJECT LEAD                                               |   2363 |  93.9060516292848 |
+| SENIOR TECHNICAL CONSULTANT                                |   1882 | 93.78320935175346 |
+| APPLICATIONS CONSULTANT                                    |   1180 | 93.64406779661016 |
+| WEB DEVELOPER                                              |   8024 | 92.16101694915254 |
+| SENIOR SYSTEMS ANALYST                                     |   5353 | 92.09788903418644 |
+| SENIOR MANAGER                                             |   1439 |  92.0778318276581 |
+| PRINCIPAL CONSULTANT                                       |   1836 |  92.0479302832244 |
+| ELEMENTARY BILINGUAL TEACHER                               |   2088 | 91.90613026819923 |
+| QA TESTER                                                  |   1170 |  91.7948717948718 |
+| TECHNICAL CONSULTANT                                       |   3420 | 91.72514619883042 |
+| TEST ANALYST                                               |   1419 | 91.40239605355885 |
+| LEAD ENGINEER                                              |  11157 |  91.3686474858833 |
+| APPLICATIONS DEVELOPER                                     |   3366 | 91.20617944147355 |
+| SOFTWARE TEST ENGINEER                                     |   3591 | 91.17237538290169 |
+| TECHNICAL MANAGER                                          |   1060 | 91.13207547169812 |
+| BUSINESS SYSTEM ANALYST                                    |   4435 |  91.0935738444194 |
+| RF ENGINEER                                                |   2794 | 90.94488188976378 |
+| TEST ENGINEER LEVEL 2                                      |   2372 |  90.7672849915683 |
+| MEMBER OF TECHNICAL STAFF                                  |   1774 | 90.75535512965051 |
+| COMPUTER PROGRAMMER                                        |  70570 | 90.71560153039535 |
+| COMPUTER SYSTEMS ANALYSTS                                  |   4728 | 90.71489001692046 |
+| SENIOR PROGRAMMER ANALYST                                  |   5810 | 90.60240963855422 |
+| IT PROJECT MANAGER                                         |   2473 | 90.45693489688638 |
+| SR. SYSTEMS ANALYST                                        |   1151 | 90.35621198957429 |
+| TECHNICAL LEAD                                             |   5218 |   90.341126868532 |
+| COMPONENT DESIGN ENGINEER                                  |   2851 | 90.28411083830234 |
+| IT CONSULTANT                                              |   3497 | 89.96282527881041 |
+| SYSTEMS ANALYST                                            |  61965 |  89.9604615508755 |
+| SENIOR SYSTEMS ANALYST JC60                                |   3069 |  89.8989898989899 |
+| BUSINESS INTELLIGENCE ANALYST                              |   1972 |  89.8580121703854 |
+| COMPUTER SPECIALIST                                        |   2175 | 89.83908045977012 |
+| TEST ENGINEER                                              |   3936 | 89.83739837398373 |
+| INDUSTRIAL DESIGNER                                        |   3619 | 89.83144515059409 |
+| TEST LEAD                                                  |   1726 | 89.68713789107764 |
+| NETWORK AND COMPUTER SYSTEMS ADMINISTRATOR                 |   1928 | 89.62655601659752 |
+| SOLUTIONS ARCHITECT                                        |   1915 |  89.6083550913838 |
+| COMPUTER SYSTEMS ANALYST                                   |  35086 | 89.58843983355185 |
+| SYSTEMS ENGINEER                                           |   8078 |  89.5642485763803 |
+| DATABASE DEVELOPER                                         |   1155 | 89.52380952380953 |
+| ARCHITECT LEVEL 2                                          |   2892 | 89.48824343015215 |
+| SYSTEMS ADMINISTRATOR                                      |   6659 | 89.47289382790208 |
+| PROGRAMMER ANALYST                                         | 249038 | 89.43615030637895 |
+| SYSTEM ADMINISTRATOR                                       |   5048 | 89.42155309033281 |
+| QA ANALYST                                                 |   6871 | 89.31742104497162 |
+| SR. PROGRAMMER ANALYST                                     |   3716 | 89.28955866523143 |
+| QUALITY ASSURANCE ANALYST                                  |   7326 | 89.23013923013923 |
+| HOSPITALIST PHYSICIAN                                      |   4067 | 87.77969018932875 |
+| SR. SOFTWARE DEVELOPER                                     |   1161 | 87.76916451335056 |
+| SR. SOFTWARE ENGINEER                                      |   4863 | 87.64137363767222 |
+| HOSPITALIST                                                |   4387 | 87.55413722361523 |
+| ARCHITECTURAL DESIGNER                                     |   2334 | 87.53213367609256 |
+| MEDICAL RESIDENT                                           |   2336 | 87.45719178082192 |
+| PHARMACIST                                                 |   5864 | 87.43178717598909 |
+| PRODUCTION SUPPORT LEAD - US                               |   1301 |               100 |
+| ASSOCIATE CONSULTANT - US                                  |   4393 | 99.90894605053494 |
+| TEST ENGINEER - US                                         |   2198 | 99.86351228389445 |
+| PRODUCTION SUPPORT ANALYST - US                            |   1451 | 99.86216402481047 |
+| SYSTEMS ENGINEER - US                                      |  10036 | 99.84057393383819 |
+| CONSULTANT - US                                            |   7426 | 99.79800700242392 |
+| SENIOR TECHNOLOGY ARCHITECT - US                           |   1417 | 99.78828510938604 |
+| TECHNOLOGY LEAD - US                                       |  28350 | 99.75308641975309 |
+| TECHNOLOGY ARCHITECT - US                                  |   4707 | 99.74506054811982 |
+| TECHNICAL TEST LEAD - US                                   |   5374 | 99.73948641607741 |
+| TEST ANALYST - US                                          |   4958 | 99.73779749899153 |
+| TECHNOLOGY ANALYST - US                                    |  26055 | 99.73133755517175 |
+| SENIOR PROJECT MANAGER - US                                |   2774 | 99.71160778658977 |
+| PROJECT MANAGER - US                                       |   7046 | 99.65938120919671 |
+| LEAD CONSULTANT - US                                       |   3402 | 99.64726631393297 |
+| DEVELOPER USER INTERFACE                                   |   5247 | 99.59977129788452 |
+| PRINCIPAL CONSULTANT - US                                  |   1352 | 99.48224852071006 |
+| PROGRAMMER ANALYST - II                                    |   3588 | 99.27536231884058 |
+| SPECIALIST MASTER                                          |   1119 | 99.19571045576407 |
+| SYSTEMS ANALYST - II                                       |   1339 | 99.10380881254667 |
+| PROJECT MANAGER - III                                      |   1651 | 99.09145972138099 |
+| ASSURANCE STAFF                                            |   2334 | 99.01456726649529 |
+| COMPUTER PROGRAMMER/CONFIGURER 2                           |   6729 | 98.91514340912468 |
+| SYSTEMS ANALYST - III                                      |   1006 |  98.9065606361829 |
+| COMPUTER SYSTEMS ANALYST 2                                 |   4031 | 98.80922847928554 |
+| COMPUTER SPECIALIST/SYSTEM SUPPORT AND DEVELOPMENT         |   1339 |  98.8050784167289 |
+| COMPUTER SPECIALIST/TESTING AND QUALITY ANALYST 2          |   3998 | 98.72436218109054 |
+| DATA WAREHOUSE SPECIALIST                                  |   1631 | 98.71244635193133 |
+| COMPUTER SYSTEMS ANALYST 3                                 |   2170 | 98.70967741935483 |
+| ADVISORY SENIOR                                            |   5416 | 98.65214180206794 |
+| PROGRAMMER ANALYST - I                                     |   1432 | 98.60335195530726 |
+| COMPUTER PROGRAMMER / CONFIGURER 2                         |   1276 | 98.51097178683386 |
+| COMPUTER PROGRAMMER/CONFIGURER 3                           |   1145 | 98.42794759825327 |
+| COMPUTER SPECIALIST/SYSTEM SUPPORT AND DEVELOPMENT ADMIN 2 |   1085 |  98.3410138248848 |
+| ADVISORY MANAGER                                           |   3255 | 98.21812596006144 |
+| SPECIALIST SENIOR                                          |   1447 | 98.20317899101589 |
+| MODULE LEAD                                                |   2226 | 98.20305480682839 |
+| AUDIT ASSISTANT                                            |   1205 | 98.09128630705393 |
+| ADVISORY STAFF                                             |   2413 | 98.01077496891835 |
+| ERS SENIOR CONSULTANT                                      |   2249 | 97.91018230324589 |
+| BUSINESS TECHNOLOGY ANALYST                                |   2005 | 97.85536159600997 |
+| AUDIT SENIOR                                               |   1070 | 97.85046728971962 |
+| TAX SENIOR                                                 |   1838 | 97.82372143634385 |
+| COMPUTER SYSTEMS ENGINEER/ARCHITECT                        |   2067 | 97.82293178519593 |
+| SOFTWARE QUALITY ASSURANCE ENGINEER AND TESTER             |   1568 | 97.44897959183673 |
+| ADVISORY SENIOR ASSOCIATE                                  |   1332 | 97.44744744744744 |
+| SOFTWARE ENGINEER AND TESTER                               |   1216 | 97.28618421052632 |
+| ERS CONSULTANT                                             |   2170 | 97.05069124423963 |
+| ASSURANCE SENIOR                                           |   1607 | 95.95519601742377 |
+| FUNCTIONAL CONSULTANT                                      |   1115 | 95.87443946188341 |
+| PROGRAMMER/DEVELOPER                                       |   1560 | 95.83333333333334 |
+| DEVELOPER                                                  |  12909 | 95.66968781470293 |
+| SOFTWARE ENGINEER 2                                        |   4166 | 95.07921267402784 |
+| LEAD CONSULTANT                                            |   2169 |   94.974642692485 |
+| COMPUTER SYSTEMS ENGINEER                                  |  11090 | 94.95040577096484 |
+| SYSTEMS ANALYSTS                                           |   1252 | 94.88817891373802 |
+| PHYSICIAN IN A POST GRADUATE TRAINING PROGRAM              |   2421 | 94.42379182156134 |
+| MANAGER                                                    |   8561 | 94.04275201495153 |
+| SOFTWARE ENGINEER & TESTER                                 |   1538 | 94.01820546163849 |
+| PROJECT LEAD                                               |   2363 |  93.9060516292848 |
+| SENIOR TECHNICAL CONSULTANT                                |   1882 | 93.78320935175346 |
+| APPLICATIONS CONSULTANT                                    |   1180 | 93.64406779661016 |
+| WEB DEVELOPER                                              |   8024 | 92.16101694915254 |
+| SENIOR SYSTEMS ANALYST                                     |   5353 | 92.09788903418644 |
+| SENIOR MANAGER                                             |   1439 |  92.0778318276581 |
+| PRINCIPAL CONSULTANT                                       |   1836 |  92.0479302832244 |
+| ELEMENTARY BILINGUAL TEACHER                               |   2088 | 91.90613026819923 |
+| QA TESTER                                                  |   1170 |  91.7948717948718 |
+| TECHNICAL CONSULTANT                                       |   3420 | 91.72514619883042 |
+| TEST ANALYST                                               |   1419 | 91.40239605355885 |
+| LEAD ENGINEER                                              |  11157 |  91.3686474858833 |
+| APPLICATIONS DEVELOPER                                     |   3366 | 91.20617944147355 |
+| SOFTWARE TEST ENGINEER                                     |   3591 | 91.17237538290169 |
+| TECHNICAL MANAGER                                          |   1060 | 91.13207547169812 |
+| BUSINESS SYSTEM ANALYST                                    |   4435 |  91.0935738444194 |
+| RF ENGINEER                                                |   2794 | 90.94488188976378 |
+| TEST ENGINEER LEVEL 2                                      |   2372 |  90.7672849915683 |
+| MEMBER OF TECHNICAL STAFF                                  |   1774 | 90.75535512965051 |
+| COMPUTER PROGRAMMER                                        |  70570 | 90.71560153039535 |
+| COMPUTER SYSTEMS ANALYSTS                                  |   4728 | 90.71489001692046 |
+| SENIOR PROGRAMMER ANALYST                                  |   5810 | 90.60240963855422 |
+| IT PROJECT MANAGER                                         |   2473 | 90.45693489688638 |
+| SR. SYSTEMS ANALYST                                        |   1151 | 90.35621198957429 |
+| TECHNICAL LEAD                                             |   5218 |   90.341126868532 |
+| COMPONENT DESIGN ENGINEER                                  |   2851 | 90.28411083830234 |
+| IT CONSULTANT                                              |   3497 | 89.96282527881041 |
+| SYSTEMS ANALYST                                            |  61965 |  89.9604615508755 |
+| SENIOR SYSTEMS ANALYST JC60                                |   3069 |  89.8989898989899 |
+| BUSINESS INTELLIGENCE ANALYST                              |   1972 |  89.8580121703854 |
+| COMPUTER SPECIALIST                                        |   2175 | 89.83908045977012 |
+| TEST ENGINEER                                              |   3936 | 89.83739837398373 |
+| INDUSTRIAL DESIGNER                                        |   3619 | 89.83144515059409 |
+| TEST LEAD                                                  |   1726 | 89.68713789107764 |
+| NETWORK AND COMPUTER SYSTEMS ADMINISTRATOR                 |   1928 | 89.62655601659752 |
+| SOLUTIONS ARCHITECT                                        |   1915 |  89.6083550913838 |
+| COMPUTER SYSTEMS ANALYST                                   |  35086 | 89.58843983355185 |
+| SYSTEMS ENGINEER                                           |   8078 |  89.5642485763803 |
+| DATABASE DEVELOPER                                         |   1155 | 89.52380952380953 |
+| ARCHITECT LEVEL 2                                          |   2892 | 89.48824343015215 |
+| SYSTEMS ADMINISTRATOR                                      |   6659 | 89.47289382790208 |
+| PROGRAMMER ANALYST                                         | 249038 | 89.43615030637895 |
+| SYSTEM ADMINISTRATOR                                       |   5048 | 89.42155309033281 |
+| QA ANALYST                                                 |   6871 | 89.31742104497162 |
+| SR. PROGRAMMER ANALYST                                     |   3716 | 89.28955866523143 |
+| QUALITY ASSURANCE ANALYST                                  |   7326 | 89.23013923013923 |
+| HOSPITALIST PHYSICIAN                                      |   4067 | 87.77969018932875 |
+| SR. SOFTWARE DEVELOPER                                     |   1161 | 87.76916451335056 |
+| SR. SOFTWARE ENGINEER                                      |   4863 | 87.64137363767222 |
+| HOSPITALIST                                                |   4387 | 87.55413722361523 |
+| ARCHITECTURAL DESIGNER                                     |   2334 | 87.53213367609256 |
+| MEDICAL RESIDENT                                           |   2336 | 87.45719178082192 |
+| PHARMACIST                                                 |   5864 | 87.43178717598909 |
++------------------------------------------------------------+--------+-------------------+
+421 rows in set (0.18 sec)
+
+
+
