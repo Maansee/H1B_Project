@@ -5,7 +5,7 @@ a1 = foreach h1b generate $7,$1;
 a2 = group a1 by year;
 
 --a3 = foreach a2 generate group as year, COUNT(a1) as Total;
-a3 = load '/niit/a3_op_c' using PigStorage(',') as (year:chararray, a1_count:int);
+a3 = load '/niit/a3_op' using PigStorage(',') as (year:chararray, a1_count:int);
  
 a4 = filter a1 by case_status =='CERTIFIED';
 
